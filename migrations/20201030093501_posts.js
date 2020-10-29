@@ -3,7 +3,8 @@ exports.up = function (knex, Promise) {
     table.increments("id").primary();
     table.string("title");
     table.string("content");
-    table.string("url");
+    table.string("video_url");
+    table.string("link_url")
     table.string("author");
   });
 };
