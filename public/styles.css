@@ -37,6 +37,10 @@
    
     }
 
+    .tag-flexbox {
+        display: flex;
+    }
+
     body {
         margin:0;
     }
