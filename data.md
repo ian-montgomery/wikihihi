@@ -2,22 +2,33 @@
 
 ## Week One
 Data Structures
+
 Express
+
 Jest
+
 NPM
+
 TDD
 
 ## Week Two
 Async
+
 Express Routers
+
 Server Side Rendering
+
 Handlebars
+
 Deploying to Heroku
 
 ## Week Three
 Knex
+
 Databases
+
 Promises
+
 Join Collisions
 
 ## Videos
@@ -72,3 +83,16 @@ Logo/Title Font idea:
 
 
 font-family: 'Permanent Marker', cursive;
+
+##Functions
+users can add and edit posts
+
+users can add tags
+
+users can only tag posts when they creat them?
+
+users can browse posts based on tags
+
+users can click tags to see a list of posts related to tags
+
+each post shows a list of tags
