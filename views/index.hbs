@@ -1,15 +1,47 @@
 <ul>
     {{#each posts}}
-        <li>
-            <a href="/viewpost/{{id}}">{{title}}</a>
-        </li>
+    <li>
+        <a href="/viewpost/{{id}}">{{title}}</a>
+    </li>
     {{/each}}
 </ul>
 
 <ul>
     {{#each tags}}
-        <li>
-            {{tag_name}}
-        </li>
+    <li>
+        {{tag_name}}
+    </li>
     {{/each}}
 </ul>
+
+<form action="/new_post" method="POST" id="new_post_form">
+
+    <label for="title">Title</label>
+    <br>
+    <input type="text" name="title">
+    <br>
+
+    <label for="author">author</label>
+    <br>
+    <input type="text" name="author">
+    <br>
+
+    <label for="video_url">Video</label>
+    <br>
+    <textarea name="video_url" form="new_post_form"> </textarea>
+    <br>
+
+    <label for="link_url">Link to article</label>
+    <br>
+    <textarea name="link_url" form="new_post_form"> </textarea>
+    <br>
+
+    <label for="content">Comments</label>
+    <br>
+    <textarea name="content" form="new_post_form"> </textarea>
+    <br>
+
+    <button form="new_post_form" type="submit">Create Post</button>
+
+
+</form>
