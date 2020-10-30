@@ -41,12 +41,12 @@ function getTagsFromPost(id, db = connection){
     .where('post_tag_relations.post_id',id)
   )
 }
-function getPostFromTag(id, db = connection){
+function getPostsFromTag(tag_id, db = connection){
   return (
     db('posts')
-    .join('post_tag_relations','post_tag_relations.tag_id','post.id')
+    .join('post_tag_relations','post_tag_relations.tag_id','posts.id')
     .select('posts.*')
-    .where('post_tag_relations.post_id',id)
+    .where('post_tag_relations.post_id',tag_id)
   )
 }
 
@@ -66,7 +66,7 @@ module.exports = {
   addPost,
   getPostById,
   getTagsFromPost,
-  getPostFromTag
+  getPostsFromTag
   
   // editPost
 };

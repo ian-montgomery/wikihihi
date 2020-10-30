@@ -49,8 +49,16 @@ router.get('/viewPost/:id', (req, res) => {
 
     })
 })
-router.get('/viewbytag', (req,res)=>{
-    
+
+router.get('/viewbytag/:tag', (req,res)=>{
+    const tag = req.params.tag
+    console.log(tag)
+    db.getPostsFromTag(tag)
+        .then(posts => {
+            console.log(posts)
+            const viewData = {posts}
+            res.render('index', viewData)
+        })
 })
 
 

@@ -1,3 +1,8 @@
+
+
+
+<h1> posts </h1>
+
 <ul>
     {{#each posts}}
     <li>
@@ -6,10 +11,11 @@
     {{/each}}
 </ul>
 
+<h1> tags </h1>
 <ul>
     {{#each tags}}
     <li>
-        {{tag_name}}
+        <a href="/viewbytag/{{id}}">{{tag_name}}</a>
     </li>
     {{/each}}
 </ul>
