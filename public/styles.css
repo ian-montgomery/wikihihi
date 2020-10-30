@@ -16,6 +16,8 @@
      }
   .Article { 
       grid-area: Article;
+      margin: 70px;
+      margin-left: 200px;
      
     }
   .Nav { 
@@ -34,7 +36,6 @@
         font-size: 160px;
         line-height: 300px;
         margin: 0;
-
     }
 
     

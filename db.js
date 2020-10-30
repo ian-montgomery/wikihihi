@@ -3,6 +3,7 @@ const config = require("./knexfile");
 const env = process.env.NODE_ENV || "development";
 const connection = knex(config[env]);
 
+
 function getAllPosts(db = connection) {
   return db("posts")
       .select()

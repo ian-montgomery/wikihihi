@@ -24,6 +24,6 @@ exports.seed = (knex) =>
         { id: 19, tag_name: "express" },
         { id: 20, tag_name: "server-side rendering" },
         { id: 21, tag_name: "promises" },
-        { id: 22, tag_name: "join collisions" },
+        { id: 22, tag_name: "join collisions" }
       ])
     );
