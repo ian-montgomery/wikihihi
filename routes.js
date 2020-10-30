@@ -25,7 +25,10 @@ router.get('/viewPost/:id', (req, res) => {
 
     db.getPostById(urlId)
     .then (postData => {
+        console.log(postData)
 
+        res.render('postView', postData)
+      
         const viewData = {
             id: postData.id,
             title: postData.title,
@@ -43,6 +46,7 @@ router.get('/viewPost/:id', (req, res) => {
         
 
         
+
     })
 })
 router.get('/viewbytag', (req,res)=>{
@@ -53,7 +57,7 @@ router.get('/viewbytag', (req,res)=>{
 router.get('/viewPost/:id', (req, res) => { 
     const urlId = req.params.id
 
-
+})
 router.get('/editPost/:id' ,(req,res) => {
     const urlId = req.params.id
     db.getPostById(urlId)

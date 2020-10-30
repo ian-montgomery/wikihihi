@@ -1,3 +1,15 @@
 <div class="content">
-{{post.content}}
+<h1>
+    {{content}}
+</h1>
+{{#if video_url}}
+<iframe width="560" height="315" src="{{video_url}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{/if}}
+</div>
+<div>
+    <ul>
+        {{#each postTags}}
+        <li>{{tag_name}}</li>
+        {{/each}}
+    </ul>
 </div>
