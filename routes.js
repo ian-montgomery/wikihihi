@@ -1,8 +1,8 @@
 const express = require('express')
 const { routes } = require('./server')
 const router = express.Router()
-const db = require('./db')
 
+const db = require('./db')
 
 router.get('/' ,(req,res) => {
     const viewData = {}
@@ -40,6 +40,10 @@ router.get('/viewPost/:id', (req, res) => {
         res.render('postView', viewData)
     })
 })
+
+
+router.get('/viewPost/:id', (req, res) => { 
+    const urlId = req.params.id
 
 
 router.get('/editPost/:id' ,(req,res) => {
