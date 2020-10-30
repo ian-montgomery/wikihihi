@@ -14,7 +14,6 @@ router.get('/' ,(req,res) => {
             .then(tags => {
                 viewData.tags = tags
                 
-                console.log(viewData)
                 res.render('index', viewData)
             })
         })
@@ -24,21 +23,34 @@ router.get('/' ,(req,res) => {
 router.get('/viewPost/:id', (req, res) => {
     const urlId = req.params.id
 
-    db.getPost(urlId)
+    db.getPostById(urlId)
     .then (postData => {
         console.log(postData)
 
-        // const viewData = {
-        //     title: postData.title,
-        //     content: postData.content,
-        //     video_url: postData.video_url,
-        //     author: postData.author
-        // }
-
-        // console.log("viewData" + viewData)
-
         res.render('postView', postData)
+      
+        const viewData = {
+            id: postData.id,
+            title: postData.title,
+            content: postData.content,
+            url: postData.url,
+            author: postData.author
+        }
+        db.getTagsFromPost(urlId)
+        .then(postTags =>{
+            viewData.postTags = postTags
+            console.log(viewData)
+            res.render('postView', viewData)
+        })
+
+        
+
+        
+
     })
+})
+router.get('/viewbytag', (req,res)=>{
+    
 })
 
 
@@ -48,7 +60,7 @@ router.get('/viewPost/:id', (req, res) => {
 })
 router.get('/editPost/:id' ,(req,res) => {
     const urlId = req.params.id
-    db.getPost(urlId)
+    db.getPostById(urlId)
     .then (postData => {
 
         const viewData = {
@@ -63,10 +75,11 @@ router.get('/editPost/:id' ,(req,res) => {
     res.render('editPost', viewData)
 })
 
-router.get('/newPost', (req,res) => {
-    res.render('newPost')
-})
+router.post('/new_post', (req,res) => {
+    db.addPost()
 
+    res.redirect("/")
+})
 
 
 

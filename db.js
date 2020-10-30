@@ -17,7 +17,7 @@ function getAllTags(db = connection) {
 }
 
 
-function getPost(id, db = connection) {
+function getPostById(id, db = connection) {
   return (
     db("posts")
       .where("posts.id", id)
@@ -26,12 +26,31 @@ function getPost(id, db = connection) {
   );
 }
 
-// function addPost(data, db = connection) {
-//   return (
-//     db("posts")
-//       .select()
-//   );
-// }
+function addPost(data, db = connection) {
+  return (
+    db("posts")
+      .select()
+  );
+}
+
+function getTagsFromPost(id, db = connection){
+  return (
+    db('tags')
+    .join('post_tag_relations','post_tag_relations.tag_id','tags.id')
+    .select('tags.*')
+    .where('post_tag_relations.post_id',id)
+  )
+}
+function getPostFromTag(id, db = connection){
+  return (
+    db('posts')
+    .join('post_tag_relations','post_tag_relations.tag_id','post.id')
+    .select('posts.*')
+    .where('post_tag_relations.post_id',id)
+  )
+}
+
+
 
 // function editPost(data, db = connection) {
 //   return (
@@ -44,9 +63,10 @@ function getPost(id, db = connection) {
 module.exports = {
   getAllPosts,
   getAllTags,
-  getPost
-  // getPostById,
-  // getTagsByPostId,
-  // addPost,
+  addPost,
+  getPostById,
+  getTagsFromPost,
+  getPostFromTag
+  
   // editPost
 };
