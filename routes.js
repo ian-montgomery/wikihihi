@@ -20,28 +20,24 @@ router.get('/' ,(req,res) => {
 
 })
 
-router.get('/viewPost/:id', (req, res) => {
+router.get('/viewpost/:id', (req, res) => {
     const urlId = req.params.id
 
     db.getPostById(urlId)
-    .then (postData => {
-        console.log(postData)
-
-        res.render('postView', postData)
-      
-        const viewData = {
-            id: postData.id,
-            title: postData.title,
-            content: postData.content,
-            url: postData.url,
-            author: postData.author
-        }
-        db.getTagsFromPost(urlId)
-        .then(postTags =>{
-            viewData.postTags = postTags
-            console.log(viewData)
-            res.render('postView', viewData)
-        })
+        .then (postData => {
+        
+            const viewData = {
+                id: postData.id,
+                title: postData.title,
+                content: postData.content,
+                url: postData.url,
+                author: postData.author
+            }
+            db.getTagsFromPost(urlId)
+            .then(postTags =>{
+                viewData.postTags = postTags
+                res.render('postView', viewData)
+            })
 
         
 
@@ -50,22 +46,17 @@ router.get('/viewPost/:id', (req, res) => {
     })
 })
 
+
 router.get('/viewbytag/:tag', (req,res)=>{
     const tag = req.params.tag
-    console.log(tag)
     db.getPostsFromTag(tag)
         .then(posts => {
-            console.log(posts)
             const viewData = {posts}
             res.render('index', viewData)
         })
 })
 
 
-router.get('/viewPost/:id', (req, res) => { 
-    const urlId = req.params.id
-
-})
 router.get('/editPost/:id' ,(req,res) => {
     const urlId = req.params.id
     db.getPostById(urlId)
