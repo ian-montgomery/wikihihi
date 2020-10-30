@@ -65,8 +65,7 @@ exports.seed = (knex) =>
           id: 9,
           title: "Express Routers",
           content: "This is the lecture on Express Routers",
-          url:
-            "https://www.youtube.com/embed/-bIky1cqt5s",
+          url: "https://www.youtube.com/embed/-bIky1cqt5s",
           author: "anonymous",
         },
         {
