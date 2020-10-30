@@ -26,18 +26,18 @@ router.get('/viewPost/:id', (req, res) => {
 
     db.getPost(urlId)
     .then (postData => {
+        console.log(postData)
 
-        const viewData = {
-            id: postData.id,
-            title: postData.title,
-            content: postData.content,
-            url: postData.url,
-            author: postData.author
-        }
+        // const viewData = {
+        //     title: postData.title,
+        //     content: postData.content,
+        //     video_url: postData.video_url,
+        //     author: postData.author
+        // }
 
-        console.log(viewData)
+        // console.log("viewData" + viewData)
 
-        res.render('postView', viewData)
+        res.render('postView', postData)
     })
 })
 
@@ -45,7 +45,7 @@ router.get('/viewPost/:id', (req, res) => {
 router.get('/viewPost/:id', (req, res) => { 
     const urlId = req.params.id
 
-
+})
 router.get('/editPost/:id' ,(req,res) => {
     const urlId = req.params.id
     db.getPost(urlId)
